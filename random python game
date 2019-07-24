@@ -1,0 +1,45 @@
+import random
+import time
+import pymsgbox
+
+def t(sec):
+  time.sleep(sec)
+  
+def game():
+  p_name=pymsgbox.prompt(text="Enter your name",title="PLAYER")
+  pymsgbox.alert(text="Welcome "+p_name+".... Let's play the game",title="Let's Start")
+  level=pymsgbox.confirm('Choose your level','LEVEl',['LOW','MEDIUM','HIGH'])
+  if level=="LOW":
+    ran_num=random.randint(0,5)
+    enter_num=pymsgbox.prompt(text="Enter your lucky number in between 0 and 5",title="CHOOSE LUCKY NUMBER")
+  elif level=="MEDIUM":
+    ran_num=random.randint(0,10)
+    enter_num=pymsgbox.prompt(text="Enter your lucky number in between 0 and 10",tle="CHOOSE LUCKY NUMBER")
+  elif level=="HIGH":
+    ran_num=random.randint(0,15)
+    enter_num=pymsgbox.prompt(text="Enter your lucky number in between 0 and 15",le="CHOOSE LUCKY NUMBER")
+  print "Good Choice....."
+  t(1)
+  print "Loading.."
+  t(1)
+  print "."
+  t(1)
+  print "."
+  t(1)
+  print "."
+  t(1)
+  print "."
+  t(1)
+  print "."
+  t(1)
+  
+  if ran_num==enter_num:
+    pymsgbox.alert(text="You  are a Winner!!!... ,Congragulations!",title="WINNER!!!")
+  else:
+    pymsgbox.alert(text="You loose the game.. ,Better lucky next time!!!",title="LOOSE!!!")
+    pymsgbox.alert(text="The answer is "+str(ran_num),title="LOOSE!!!")
+again="YES"
+while again=="YES":
+  game()
+  again=pymsgbox.confirm('Do you want to try more','TRY ONCE MORE',['YES','NO'])
+pymsgbox.alert(text="Thankyou...",title="END")
